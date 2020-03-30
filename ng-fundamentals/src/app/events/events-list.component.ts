@@ -3,6 +3,7 @@ import { EventService } from './shared/event.service';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { ToastrService } from '../common/toastr.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IEvent } from './shared';
 
 declare let toastr
 @Component({
@@ -12,7 +13,7 @@ declare let toastr
 })
 export class EventsListComponent implements OnInit {
 
-  events: any;
+  events: IEvent[];
 
   constructor(
     private eventService: EventService,

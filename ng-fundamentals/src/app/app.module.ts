@@ -7,12 +7,15 @@ import { EventsListComponent,
   EventThumbnailComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  EventListResolver,
+  EventListResolver
 } from './events/index'
 import { NavComponent } from './nav/nav.component';
 import { Error404Component } from './errors/test/404.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { UserModule } from './user/user.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,15 @@ import { UserModule } from './user/user.module';
     NavComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: 'canDeactivateCreateEvent',
