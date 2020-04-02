@@ -18,9 +18,13 @@ import { CreateSessionComponent } from './events/event-details/create-session/cr
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service'
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
+import { JQUERY_TOKEN } from './common/j-query.service';
+import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
+import { ModalTriggerDirective } from './common/modal-trigger.directive'
 
-declare let toastr:Toastr;
+let toastr:Toastr = window['toastr'];
+let jQuery = window['$'];
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,9 @@ declare let toastr:Toastr;
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,7 @@ declare let toastr:Toastr;
     {provide: 'canDeactivateCreateEvent',
   useValue: checkDirtyState},
     {provide: TOASTR_TOKEN, useValue: toastr},
+    {provide: JQUERY_TOKEN, useValue: jQuery},
     EventListResolver
   ],
   bootstrap: [AppComponent]
